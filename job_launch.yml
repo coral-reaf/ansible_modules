@@ -1,0 +1,25 @@
+---
+- name: Launch Tower Job
+  hosts: localhost
+
+  tasks:
+  - name: Launch Tower Job
+    tower_job_launch:
+      job_template: Apache Install
+      tower_username: admin
+      tower_password: ansible
+      validate_certs: no
+    register: job
+
+  - name: Wait for Job max 120sec
+    tower_job_wait:
+      tower_username: admin
+      tower_password: ansible
+      validate_certs: no
+      job_id: "{{job.id}}"
+      timeout: 120
+    register: job_status
+
+  - name: Print Job Status
+    debug:
+      var: job_status
