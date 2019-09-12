@@ -1,0 +1,18 @@
+---
+- name: Manage Tower Inventory Host
+  hosts: localhost
+
+  tasks:
+  - name: Add Tower Inventory Host
+    tower_project:
+      name: Ansible Workshop Examples
+      tower_username: admin
+      tower_password: ansible
+      organization: Default
+      scm_type: git
+      scm_url: https://github.com/ansible/workshop-examples.git
+      scm_update_on_launch: yes
+      scm_delete_on_update: yes
+      scm_clean: yes
+      state: present
+      validate_certs: no
