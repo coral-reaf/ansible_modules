@@ -1,0 +1,18 @@
+---
+- name: Manage Tower Inventory Host
+  hosts: localhost
+
+  tasks:
+  - name: Add Tower Inventory Host
+    tower_job_template:
+      name: Create index.html
+      tower_username: admin
+      tower_password: ansible
+      job_type: run
+      inventory: Webserver
+      project: Ansible Workshop Examples
+      playbook: rhel/apache/apache_role_install.yml
+      credential: Workshop Credentials
+      state: present
+      become_enabled: yes
+      validate_certs: no
