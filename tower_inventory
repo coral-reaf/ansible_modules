@@ -1,0 +1,10 @@
+---
+- name: Manage Tower Inventory
+  hosts: localhost
+  
+  tasks:
+  - name: Add Tower Inventory
+    tower_inventory:
+      name: Workshop Inventory
+      organization: Default
+      state: present
