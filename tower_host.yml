@@ -1,0 +1,22 @@
+---
+- name: Manage Tower Inventory Host
+  hosts: localhost
+
+  tasks:
+  - name: Add Tower Inventory Host
+    tower_host:
+      name: "{{item.node_name}}"
+      inventory: Workshop Inventory
+      tower_username: admin
+      tower_password: ansible
+      state: present
+      validate_certs: no
+      variables:
+        "{{ item.var}}"
+#        ansible_user: student1
+#        ansible_ssh_pass: ansible
+#        ansible_port: 22
+    loop:
+      - { node_name: 'node1', var: 'ansible_host: 54.172.204.46'}
+      - { node_name: 'node2', var: 'ansible_host: 3.91.82.41'}
+      - { node_name: 'node3', var: 'ansible_host: 34.224.70.230'}
