@@ -7,4 +7,7 @@
     tower_inventory:
       name: Workshop Inventory
       organization: Default
+      tower_username: admin
+      tower_password: ansible
       state: present
+      validate_certs: no
