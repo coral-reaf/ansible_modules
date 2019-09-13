@@ -1,7 +1,8 @@
 ---
-- name: Manage Tower Inventory
+- name: Manage Tower inventory
   hosts: localhost
-  
+  become: yes
+
   tasks:
   - name: Add Tower Inventory
     tower_inventory:
@@ -11,3 +12,6 @@
       tower_password: ansible
       state: present
       validate_certs: no
+
+  - name: Add Tower Inventory Host
+    command: tower-manage inventory_import --group-filter web --source lab_inventory/hosts --inventory-name="Workshop Inventory"
