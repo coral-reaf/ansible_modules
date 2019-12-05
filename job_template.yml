@@ -1,9 +1,9 @@
 ---
-- name: Manage Tower Inventory Host
+- name: Manage Job Template
   hosts: localhost
 
   tasks:
-  - name: Add Tower Inventory Host
+  - name: Manage Job Template
     tower_job_template:
       name: Apache Install
       tower_username: admin
